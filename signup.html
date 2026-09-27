@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Create an Account | Cebu Eastern College</title>
+    <link rel="stylesheet" href="account.css" />
+    <script src="account.js" defer></script>
+  <link rel="stylesheet" href="fullscreen.css">
+<script src="password-visibility.js" defer></script>
+</head>
+  <body>
+    <main class="account-frame">
+      <p class="page-label">SIGN IN PAGE</p>
+      <div class="account-shell">
+        <aside class="sidebar">
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="Return to Cebu Eastern College home"
+            ><img src="assets/ceclogo.png" alt="CEC logo" />Cebu
+            Eastern College</a
+          >
+        </aside>
+        <section class="account-main">
+          <h1>Create an Account</h1>
+          <form data-mode="signup">
+            <div class="fields">
+              <div class="field">
+                <label for="username">Enter your Username</label
+                ><input
+                  id="username"
+                  name="username"
+                  type="text"
+                  placeholder="Enter your Username"
+                  required
+                  autocomplete="username"
+                  minlength="3"
+                  maxlength="40"
+                />
+              </div>
+              <div class="field">
+                <label for="schoolId">Enter your School ID</label
+                ><input
+                  id="schoolId"
+                  name="schoolId"
+                  type="text"
+                  placeholder="Enter your School ID"
+                  required
+                  maxlength="40"
+                />
+              </div>
+              <div class="field">
+                <label for="password">Enter your Password</label
+                ><input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Enter your Password"
+                  required
+                  autocomplete="new-password"
+                  minlength="8"
+                  maxlength="128"
+                />
+              </div>
+              <div class="field">
+                <label for="contact">Enter your Contact Number</label
+                ><input
+                  id="contact"
+                  name="contact"
+                  type="tel"
+                  placeholder="Enter your Contact Number"
+                  required
+                  autocomplete="tel"
+                  maxlength="30"
+                />
+              </div>
+              <div class="field">
+                <label for="confirmPassword">Confirm Password</label
+                ><input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Confirm Password"
+                  required
+                  autocomplete="new-password"
+                  minlength="8"
+                  maxlength="128"
+                />
+              </div>
+              <div class="field">
+                <label for="email">Enter your Email Address</label
+                ><input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your Email Address"
+                  required
+                  autocomplete="email"
+                  maxlength="254"
+                />
+              </div>
+            </div>
+            <center>
+            <div class="actions">
+            </div><button class="button" type="submit">Confirm</button></center>
+          </form>
+          <center><p class="or">Or<br />log in with</p></center>
+          <div class="social-buttons">
+            <button class="button" type="button" data-provider="Google">
+              Log In Using Gmail
+              <span class="social-icon" aria-hidden="true">G</span></button
+            ><button class="button" type="button" data-provider="Facebook">
+              Log In Using Facebook
+              <span class="facebook" aria-hidden="true">f</span>
+            </button>
+          </div>
+          <p class="status" role="status" aria-live="polite"></p>
+          <p class="account-switch">
+            Already have an account? <a href="login.html">Log in</a> ·
+            <a href="index.html">Home</a>
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

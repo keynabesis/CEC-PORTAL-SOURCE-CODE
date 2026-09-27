@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Student Profile | Cebu Eastern College</title>
+    <link rel="stylesheet" href="profile.css" />
+    <script src="dashboard.js" defer></script>
+  <link rel="stylesheet" href="fullscreen.css">
+</head>
+  <body>
+    <main class="page-frame">
+      <p class="page-label">HOME PAGE</p>
+      <div class="dashboard">
+        <aside class="sidebar">
+          <a href="dashboard.html" class="brand"
+            ><img src="assets/ceclogo.png" alt="CEC placeholder logo" /><span
+              >Cebu Eastern College</span
+            ></a
+          >
+          <nav aria-label="Student navigation">
+            <div class="nav-group">
+              <h2>ACADEMIC</h2>
+              <button data-section="Academic Records">
+                <span>▰</span>Academic Records</button
+              ><button data-section="View Schedule">
+                <span>▦</span>View Schedule</button
+              ><button data-section="Student Grades">
+                <span>▣</span>Student Grades</button
+              ><button data-section="Assignments">
+                <span>☑</span>Assignments</button
+              ><button data-section="Attendance">
+                <span>▤</span>Attendance
+              </button>
+            </div>
+            <div class="nav-group admin">
+              <h2>ADMINISTRATIVE</h2>
+              <button data-section="Announcements">
+                <span>▣</span>Announcements
+              </button>
+            </div>
+            <div class="nav-group settings">
+              <h2>SETTINGS</h2>
+              <button data-section="Account Settings">
+                <span>⚙</span>Account Settings</button
+              ><button data-section="Notification Preferences">
+                <span>♧</span>Notification Preferences</button
+              ><button data-section="About Us"><span>♙</span>About Us</button>
+            </div>
+          <a href="subjects.html" style="display:block;color:white;padding:16px">Enroll in Subjects</a></nav>
+          <button id="logout" class="logout"><span>⇥</span> LOGOUT</button>
+        </aside>
+        <section class="main-panel">
+          <header class="topbar">
+            <label class="search"
+              ><span aria-hidden="true">⌕</span
+              ><span class="sr-only">Search enrolled courses</span
+              ><input id="search" type="search" placeholder="Search"
+            /></label>
+            <div class="top-actions">
+              <button
+                data-section="Messages"
+                class="indicator"
+                aria-label="Messages"
+              >
+                ▰</button
+              ><button
+                data-section="Notifications"
+                class="indicator"
+                aria-label="Notifications"
+              >
+                ♟</button
+              ><button
+                data-section="Account Settings"
+                class="avatar"
+                aria-label="Your account"
+              >
+                ●
+              </button>
+            </div>
+          </header>
+          <div class="dashboard-content">
+            <section class="welcome-banner">
+              <div>
+                <p id="today">Welcome</p>
+                <h1>Welcome back, <span id="student-name">Student</span></h1>
+                <p>
+                  Here's a quick look at your classes and academic progress.
+                </p>
+              </div>
+              <div class="term">
+                <span>Current term</span
+                ><strong>1st Semester · S.Y. 2026–2027</strong>
+              </div>
+            </section>
+            <section class="stats" aria-label="Sample academic summary">
+              <article>
+                <h2>GPA</h2>
+                <p>1.74</p>
+                <p>Good standing</p>
+              </article>
+              <article>
+                <h2>Enrolled</h2>
+                <p>4</p>
+                <p>Subjects</p>
+              </article>
+              <article>
+                <h2>Assignment</h2>
+                <p>3</p>
+                <p>Subjects</p>
+              </article>
+              <article>
+                <h2>Units</h2>
+                <p>10</p>
+                <p>Currently enrolled</p>
+              </article>
+            </section>
+            <section class="courses-section" aria-labelledby="courses-heading">
+              <div class="section-heading">
+                <h2 id="courses-heading">
+                  <span aria-hidden="true">▥</span> Enrolled Courses
+                </h2>
+                <button id="view-all">View all ›</button>
+              </div>
+              <div class="course-grid" id="courses"></div>
+              <p id="no-results" hidden>No courses match your search.</p>
+            </section>
+            <p class="demo-note">
+              Sample academic data · Your school records are not connected yet.
+            </p>
+            <p id="page-status" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <dialog id="detail-dialog" aria-labelledby="detail-title">
+      <button id="close-dialog" aria-label="Close dialog">×</button>
+      <h2 id="detail-title"></h2>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>

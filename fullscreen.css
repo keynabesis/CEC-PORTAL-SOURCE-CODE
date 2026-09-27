@@ -1,0 +1,28 @@
+/* Browser-filling layouts; content may scroll on smaller screens. */
+html{min-height:100%;background:#fff}body{min-height:100vh;min-height:100dvh;background:#fff}
+.page-frame,.login-frame,.account-frame,.portal-frame{width:100%;max-width:none;margin:0;min-height:100vh;min-height:100dvh}
+.page-label,.frame-label{display:none}
+.college-page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.college-page .hero{flex:1;min-height:0}.college-page .school-heading{padding-top:18px}.college-page .school-heading p{white-space:normal}
+.college-page .welcome-copy{padding-top:24px;padding-bottom:120px}
+.login-card{width:100%;min-height:100vh;min-height:100dvh;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.welcome-panel{min-height:100%;padding:clamp(36px,8vh,100px) 30px;border:0}
+.welcome-panel .description{line-height:1.5;max-width:390px;margin-top:auto;padding-top:60px}
+.form-panel{width:100%;max-width:550px;align-self:center;justify-self:center;padding:40px clamp(24px,4vw,64px)}
+.account-shell{min-height:100vh;min-height:100dvh;grid-template-columns:clamp(130px,18vw,250px) minmax(0,1fr);padding-bottom:0}
+.account-shell .sidebar{min-height:100%;padding-top:50px}.account-shell .brand{font-size:12px}.account-shell .brand img{width:70px;height:70px}
+.account-main{align-self:center;width:100%;max-width:1050px;justify-self:center;padding:48px clamp(24px,5vw,80px)}
+.account-main .fields{grid-template-columns:repeat(2,minmax(0,1fr));margin:0;gap:24px 48px}.account-main .field input{height:46px}.account-main .field label{font-size:13px}
+.account-main .social-buttons{margin:0;justify-content:center;gap:32px}.account-main .button{min-height:44px}
+.dashboard,.portal-layout{min-height:100vh;min-height:100dvh}.main-panel,.portal-main{min-width:0}
+.dashboard .nav-group{min-height:0;padding-bottom:22px}.dashboard .brand{height:150px}.dashboard .nav-group.settings{margin-top:auto}
+body:has(>aside) .content{max-width:none}
+.visibility-wrap{position:relative;display:block;width:100%}.visibility-wrap input{padding-right:50px}
+button.password-toggle{position:relative;display:grid;place-items:center;flex-shrink:0;width:40px;height:36px;padding:6px;border:0;border-radius:8px;background:transparent;color:#1c2c47;cursor:pointer;transition:background .18s,color .18s}
+.visibility-wrap button.password-toggle{position:absolute;right:5px;top:50%;transform:translateY(-50%)}
+button.password-toggle:hover{background:#d6e1ef;color:#1261a2}button.password-toggle:focus-visible{outline:2px solid #1472b5;outline-offset:2px}
+button.password-toggle svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+button.password-toggle .eye-slash{opacity:0;transition:opacity .18s}button.password-toggle[aria-pressed="true"] .eye-slash{opacity:1}
+@media(max-width:700px){.account-shell{grid-template-columns:100px minmax(0,1fr)}.account-main{padding:30px 20px}.account-main .fields{grid-template-columns:1fr;gap:18px}.account-main .social-buttons{flex-direction:column;align-items:center;gap:12px}.account-shell .brand{font-size:10px}.account-shell .brand img{width:55px;height:55px}}
+@media(max-width:560px){.login-card{grid-template-columns:1fr}.welcome-panel{min-height:310px;padding:30px 24px}.welcome-panel .description{padding-top:25px}.form-panel{padding:32px 24px}.account-shell{grid-template-columns:1fr}.account-shell .sidebar{min-height:0;padding:16px}.account-shell .brand{border:0;padding:0}.account-main{padding:28px 22px}.college-page .welcome-copy{padding-top:0}.college-page .school-heading{padding:20px 16px}.college-page nav{min-width:0}}
+@media(prefers-reduced-motion:reduce){button.password-toggle,button.password-toggle .eye-slash{transition:none}}

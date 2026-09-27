@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Log In | Cebu Eastern College</title>
+    <link rel="stylesheet" href="login.css" />
+    <script src="account.js" defer></script>
+    <script src="login.js" defer></script>
+  <link rel="stylesheet" href="fullscreen.css">
+<script src="password-visibility.js" defer></script>
+</head>
+  <body>
+    <main class="login-frame">
+      <p class="page-label">LOG IN</p>
+      <div class="login-card">
+        <section class="welcome-panel" aria-labelledby="welcome-heading">
+          <a class="school-logo" href="index.html" aria-label="Cebu Eastern College home"
+            ><img
+              src="assets/ceclogo.png"
+              alt="Cebu Eastern College"
+              width="74"
+              height="74"
+          /></a>
+          <h1 id="welcome-heading">WELCOME</h1>
+          <h2>CEBU EASTERN COLLEGE</h2>
+          <p class="description">
+            Cebu Eastern College is a private,
+            co-educational Chinese - Filipino institution located at the
+            Intersection of Dimasalang and Leon Kilat Street in Cebu City.
+          </p>
+        </section>
+        <section class="form-panel" aria-labelledby="login-heading">
+          <h2 id="login-heading">Log In</h2>
+          <form data-mode="login">
+            <div class="input-shell">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="6" r="5" />
+                <path d="M3 23v-5a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v5z" /></svg
+              ><label class="sr-only" for="username">Username</label
+              ><input
+                id="username"
+                name="username"
+                autocomplete="username"
+                placeholder="Username"
+                required
+                maxlength="40"
+              />
+            </div>
+            <div class="input-shell password-shell">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M6 10V7a6 6 0 0 1 12 0v3h3v13H3V10zm3 0h6V7a3 3 0 0 0-6 0z"
+                />
+                <path d="M11 14h2v5h-2z" fill="#edeaea" /></svg
+              ><label class="sr-only" for="password">Password</label
+              ><input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Password"
+                required
+                maxlength="128"
+              /><button
+                class="password-toggle"
+                type="button"
+                aria-label="Show password"
+                aria-pressed="false"
+                aria-controls="password"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path
+                    d="M1 12s4-6 11-6 11 6 11 6-4 6-11 6S1 12 1 12zm11-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="form-options">
+              <label class="remember"
+                ><input
+                  type="checkbox"
+                  name="remember"
+                  value="yes"
+                  checked
+                /><span>Remember me</span></label
+              ><button class="text-button" id="forgot-password" type="button">
+                Forgot Password?
+              </button>
+            </div>
+            <button class="login-button" type="submit">Log In</button>
+          </form>
+          <div class="divider"><span>or</span></div>
+          <button
+            class="other-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="other-options"
+          >
+            Sign In with other
+          </button>
+          <div id="other-options" hidden>
+            <button type="button" data-provider="Google">Google / Gmail</button
+            ><button type="button" data-provider="Facebook">Facebook</button>
+          </div>
+          <p class="signup-line">
+            Don’t have an account? <a href="signup.html">Sign Up</a>
+          </p>
+          <p class="status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

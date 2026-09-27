@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Subject Enrollment | Cebu Eastern College</title>
+    <link rel="stylesheet" href="portal.css" />
+    <script src="portal.js" defer></script><script src="subjects.js" defer></script>
+  <link rel="stylesheet" href="fullscreen.css">
+<link rel="stylesheet" href="subjects.css"></head>
+  <body data-page="subjects">
+    <main class="portal-frame">
+      <p class="frame-label">CLASS SCHEDULE</p>
+      <div class="portal-layout">
+        <aside id="sidebar" class="portal-sidebar"></aside>
+        <section class="portal-main">
+          <div id="page-content"><p role="status">Loading…</p></div>
+          <p
+            class="page-status"
+            id="page-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+      </div>
+    </main>
+    <dialog id="portal-dialog" aria-labelledby="dialog-title">
+      <button id="dialog-close" aria-label="Close">×</button>
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-body"></div>
+    </dialog>
+  </body>
+</html>
+

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Teacher Portal · Cebu Eastern College</title>
+    <link rel="stylesheet" href="teacher.css" />
+    <script src="teacher.js" defer></script>
+  <link rel="stylesheet" href="fullscreen.css">
+</head>
+  <body>
+    <aside>
+      <a class="brand" href="teacher.html"
+        ><img src="assets/ceclogo.png" alt="Cebu Eastern College" /><span
+          >Cebu Eastern College</span
+        ></a
+      ><small>TEACHER PORTAL</small>
+      <nav aria-label="Teacher navigation">
+        <a href="?view=home">▦ &nbsp; Dashboard</a
+        ><a href="?view=classes">▰ &nbsp; My Classes</a
+        ><a href="?view=grades">▣ &nbsp; Gradebook</a
+        ><a href="?view=assignments">☑ &nbsp; Assignments</a
+        ><a href="?view=attendance">▤ &nbsp; Attendance</a
+        ><small>ADMINISTRATIVE</small
+        ><a href="?view=announcements">♧ &nbsp; Announcements</a
+        ><small>SETTINGS</small><a href="?view=profile">⚙ &nbsp; My Profile</a>
+      </nav>
+      <button id="logout">⇥ &nbsp; LOGOUT</button>
+    </aside>
+    <main>
+      <header>
+        <span>CEC / Faculty Portal</span><span id="identity">Teacher</span>
+      </header>
+      <div class="content">
+        <p id="status" role="status" aria-live="polite"></p>
+        <div id="screen"><p>Loading your classes…</p></div>
+      </div>
+    </main>
+  </body>
+</html>
