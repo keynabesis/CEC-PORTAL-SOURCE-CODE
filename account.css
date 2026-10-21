@@ -138,30 +138,6 @@ a:focus-visible {
   line-height: 15px;
   margin: 8px 0 5px;
 }
-.social-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 0 77px 0 44px;
-}
-.social-icon {
-  font:
-    bold 25px Arial,
-    sans-serif;
-}
-.facebook {
-  display: grid;
-  place-items: center;
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  color: white;
-  background: #080808;
-  font:
-    bold 21px Arial,
-    sans-serif;
-  padding-top: 4px;
-}
 .account-switch {
   text-align: center;
   font-size: 12px;
