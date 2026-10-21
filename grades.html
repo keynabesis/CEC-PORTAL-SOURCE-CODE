@@ -1,33 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Grades | Cebu Eastern College</title>
-    <link rel="stylesheet" href="portal.css" />
-    <script src="portal.js" defer></script>
-  <link rel="stylesheet" href="fullscreen.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grades · Cebu Eastern College Student Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Inria+Serif:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="grades.css">
 </head>
-  <body data-page="grades">
-    <main class="portal-frame">
-      <p class="frame-label">GRADES</p>
-      <div class="portal-layout">
-        <aside id="sidebar" class="portal-sidebar"></aside>
-        <section class="portal-main">
-          <div id="page-content"><p role="status">Loading…</p></div>
-          <p
-            class="page-status"
-            id="page-status"
-            role="status"
-            aria-live="polite"
-          ></p>
-        </section>
+<body>
+  <!-- Frame "GRADES" 1440 x 1024 -->
+  <div class="viewport" id="viewport">
+    <main class="stage" id="stage">
+
+      <!-- Header rules (underscore glyph lines, as drawn in the design) -->
+      <span class="rule rule--top" aria-hidden="true">__________________________________________________________________________________</span>
+      <span class="rule rule--summary" aria-hidden="true">__________________________________________________________________________________</span>
+      <span class="rule rule--table" aria-hidden="true">__________________________________________________________________________________</span>
+
+      <!-- Page heading -->
+      <h1 class="page-title">Grades</h1>
+      <p class="student">
+        <span class="student__name" id="studentName">Simone Baguio</span>
+        <span class="student__dot student__dot--1" aria-hidden="true">.</span>
+        <span class="student__program" id="studentProgram">Bachelor of Science Information Technology</span>
+        <span class="student__dot student__dot--2" aria-hidden="true">.</span>
+        <span class="student__section" id="studentSection">Section 5</span>
+      </p>
+      <p class="subtitle">Course grades released by your instructors, term by term.</p>
+
+      <!-- Term picker -->
+      <div class="term" id="termPicker">
+        <button type="button" class="term__button" id="termButton" aria-haspopup="listbox" aria-expanded="false" aria-controls="termMenu">
+          <span class="term__label" id="termLabel">1st Sem, A.Y. 2026-2027 </span>
+          <span class="term__chevron" aria-hidden="true">&lt;</span>
+        </button>
+        <ul class="term__menu" id="termMenu" role="listbox" tabindex="-1" hidden></ul>
       </div>
+
+      <!-- Summary -->
+      <section class="summary" aria-label="Term summary">
+        <div class="stat stat--avg"><span class="stat__value" id="statAverage"></span><span class="stat__label">Term weighted average</span></div>
+        <div class="stat stat--standing"><span class="stat__value" id="statStanding">In progress</span><span class="stat__label">Standing</span></div>
+        <div class="stat stat--units"><span class="stat__value" id="statUnits">22</span><span class="stat__label">Units this term</span></div>
+      </section>
+
+      <!-- Table header -->
+      <div class="thead" role="row">
+        <span class="th th--course">Course</span>
+        <span class="th th--instructor">Instructors</span>
+        <span class="th th--units">Units</span>
+        <span class="th th--grade">Grade</span>
+      </div>
+
+      <!-- Rows are rendered by grades.js -->
+      <div class="rows" id="rows" role="table" aria-label="Course grades"></div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__bg"></div>
+        <span class="sidebar__rule" aria-hidden="true">___________________________________</span>
+      </aside>
+
+      <!-- Seal watermark -->
+      <img class="watermark" src="assets/cec-seal.jpg" alt="" aria-hidden="true">
+
+      <nav class="nav" aria-label="Portal">
+        <a class="nav__item nav__item--01" href="grades.html" aria-current="page"><span class="nav__num">01</span><span class="nav__text">Grades</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--02" href="announcement.html"><span class="nav__num">02</span><span class="nav__text">Announcement</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--03" href="#" data-soon><span class="nav__num">03</span><span class="nav__text">Class Schedule</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--04" href="#" data-soon><span class="nav__num">04</span><span class="nav__text">Enrollment Status</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--05" href="#" data-soon><span class="nav__num">05</span><span class="nav__text">Academic Records</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--06" href="#" data-soon><span class="nav__num">06</span><span class="nav__text">Settings</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+      </nav>
+
+      <div class="logo" role="img" aria-label="Cebu Eastern College seal"></div>
+      <p class="school">Cebu Eastern College</p>
     </main>
-    <dialog id="portal-dialog" aria-labelledby="dialog-title">
-      <button id="dialog-close" aria-label="Close">×</button>
-      <h2 id="dialog-title"></h2>
-      <div id="dialog-body"></div>
-    </dialog>
-  </body>
+  </div>
+  <script src="grades.js"></script>
+</body>
 </html>

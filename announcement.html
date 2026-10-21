@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcements · Cebu Eastern College Student Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&family=Inria+Serif:wght@400&family=Instrument+Sans:wght@700&family=Inter:wght@400&family=Joan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="announcement.css">
+</head>
+<body>
+  <!-- Frame "ANNOUNCEMENT" 1440 x 1526 -->
+  <div class="viewport" id="viewport">
+    <main class="stage" id="stage">
+
+      <!-- Seal watermark (bottom layer) -->
+      <img class="watermark" src="assets/cec-seal.jpg" alt="" aria-hidden="true">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-hidden="true">
+        <div class="sidebar__bg"></div>
+        <span class="sidebar__rule">___________________________________</span>
+      </aside>
+
+      <!-- Announcements panel -->
+      <div class="panel" aria-hidden="true"></div>
+      <span class="panel__rule" aria-hidden="true">___________________________________________</span>
+
+      <header class="head">
+        <h1 class="head__title">Announcements</h1>
+        <img class="head__icon" src="assets/icon-7.png" alt="">
+        <p class="student">
+          <span class="student__name">Simone Baguio</span>
+          <span class="student__dot student__dot--1" aria-hidden="true">.</span>
+          <span class="student__program">Bachelor of Science Information Technology 1</span>
+          <span class="student__dot student__dot--2" aria-hidden="true">.</span>
+          <span class="student__section">Section 5</span>
+        </p>
+      </header>
+
+      <!-- Announcement cards, tags, dates and pills are rendered by announcement.js -->
+      <section class="feed" id="feed" aria-label="Announcements"></section>
+      <p class="sr-only" id="filterStatus" role="status" aria-live="polite"></p>
+
+      <!-- Selected announcement (detail card) -->
+      <article class="card card--detail" id="detail" aria-live="polite">
+        <div class="card__bg"></div>
+        <h2 class="detail__title" id="detailTitle">College recommendation<br>request due Friday.</h2>
+        <p class="detail__body" id="detailBody"></p>
+        <span class="pill pill--detail"><span class="pill__text" id="detailAudience">Students</span></span>
+      </article>
+
+      <!-- Intramurals -->
+      <article class="card card--event card--intramurals">
+        <div class="card__bg"></div>
+        <h2 class="event__title">Intramurals Applications</h2>
+        <p class="event__body">Join  now, for   upcoming 2026 CEC college intramurals.
+All students  are  encouraged to  participate the upcoming
+event, for more inquiries please message us on our official
+facebook.</p>
+        <p class="event__note">Please visit CEC official facebook for more information.</p>
+        <button type="button" class="apply" id="applyBtn" aria-pressed="false">Apply now..</button>
+      </article>
+
+      <!-- Senior-freshman meet & greet -->
+      <article class="card card--event card--meet">
+        <div class="card__bg"></div>
+        <h2 class="event__title">Senior-freshman meet and greet<br>event.</h2>
+        <p class="event__body event__body--meet">Want  to  meet your senior?  want advices?  ask how they  survive
+college?,  well now  it’s   your chance to come and  say hello  with
+your seniors. 
+<u>2nd floor annex building room A204</u></p>
+      </article>
+
+      <!-- Navigation -->
+      <nav class="nav" aria-label="Portal">
+        <a class="nav__item nav__item--01" href="grades.html"><span class="nav__num">01</span><span class="nav__text">Grades</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--02" href="announcement.html" aria-current="page"><span class="nav__num">02</span><span class="nav__text">Announcement</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--03" href="#" data-soon><span class="nav__num">03</span><span class="nav__text">Class Schedule</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--04" href="#" data-soon><span class="nav__num">04</span><span class="nav__text">Enrollment Status</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--05" href="#" data-soon><span class="nav__num">05</span><span class="nav__text">Academic Records</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+        <a class="nav__item nav__item--06" href="#" data-soon><span class="nav__num">06</span><span class="nav__text">Settings</span><span class="nav__line" aria-hidden="true">___________________________________</span></a>
+      </nav>
+
+      <div class="logo" role="img" aria-label="Cebu Eastern College seal"></div>
+      <p class="school">Cebu Eastern College</p>
+    </main>
+  </div>
+  <script src="announcement.js"></script>
+</body>
+</html>

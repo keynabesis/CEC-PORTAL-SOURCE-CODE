@@ -1,0 +1,201 @@
+/* ==========================================================================
+   ANNOUNCEMENT — Cebu Eastern College Student Portal
+   Source: Figma frame "ANNOUNCEMENT" (1440 x 1526). Coordinates are the exact
+   values from the design; the stage is scaled to fit smaller screens.
+   Layer order (bottom -> top) follows the Figma layer panel.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: #fffbfb;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.viewport { position: relative; width: 100%; overflow-x: hidden; }
+
+.stage {
+  position: relative;
+  width: 1440px; height: 1526px;
+  background: #fffbfb;
+  overflow: hidden;
+  transform-origin: 0 0;
+}
+.stage > * { position: absolute; margin: 0; }
+.stage a { color: inherit; text-decoration: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Seal watermark ---------- */
+.watermark {
+  left: 428px; top: 397px; width: 820px; height: 823px; object-fit: cover;
+  opacity: 0.05; pointer-events: none; user-select: none;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar { left: 0; top: 0; width: 0; height: 0; }
+.sidebar__bg {
+  position: absolute; left: 0; top: -4px; width: 227px; height: 1530px;
+  background: linear-gradient(180deg, #1c2b45 0%, #456aab 100%);
+}
+.sidebar__rule {
+  position: absolute; left: 19px; top: 180px; width: 190px; height: 15px;
+  font-size: 12px; line-height: 15px; color: #ffffff; white-space: nowrap; user-select: none;
+}
+
+/* ---------- Panel ---------- */
+.panel {
+  left: 251px; top: 30px; width: 672px; height: 915px;
+  background: #7d7a7a; border-radius: 16px; opacity: 0.24;
+}
+.panel__rule {
+  left: 301px; top: 110px; width: 623px; height: 54px;
+  font-size: 32px; line-height: 39px; color: #5d5b5b; white-space: nowrap; user-select: none;
+  pointer-events: none;
+}
+
+/* ---------- Heading ---------- */
+.head { left: 0; top: 0; width: 0; height: 0; }
+.head > * { position: absolute; margin: 0; }
+.head__title {
+  left: 303px; top: 59px; width: 274px; height: 43px;
+  font-family: "Inria Serif", serif; font-weight: 400; font-size: 36px; line-height: 43.16px; color: #000000;
+  white-space: nowrap;
+}
+.head__icon { left: 588px; top: 66px; width: 30px; height: 30px; object-fit: cover; }
+
+.student > span { position: absolute; white-space: nowrap; font-size: 12px; line-height: 15px; color: #4e4d4d; }
+.student__name    { left: 303px; top: 109px; }
+.student__program { left: 406px; top: 109px; }
+.student__section { left: 683px; top: 109px; }
+.student__dot     { top: 100px; font-size: 20px !important; line-height: 24.2px !important; }
+.student__dot--1  { left: 394px; }
+.student__dot--2  { left: 671px; }
+
+/* ---------- Feed (tags, dates, cards) ---------- */
+.feed { left: 0; top: 0; width: 0; height: 0; }
+.feed > * { position: absolute; }
+
+.date {
+  font-size: 20px; line-height: 24.2px; color: #000000; white-space: pre;
+}
+
+.tag {
+  height: 23px; border: 1px solid; border-radius: 4px; padding: 0; margin: 0;
+  font-family: "Inter", sans-serif; font-size: 12px; line-height: 15px; text-align: left; cursor: pointer;
+  transition: transform .12s;
+}
+.tag:hover { transform: translateY(-1px); }
+.tag:focus-visible { outline: 2px solid #456aab; outline-offset: 2px; }
+.tag__text { position: absolute; top: 3px; white-space: nowrap; }
+.tag.is-active { box-shadow: 0 0 0 2px #1c2b45; }
+
+/* Cards (shared) ---------------------------------------------------------- */
+.card { position: absolute; cursor: default; }
+.card__bg {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  background: #ede2da; border-radius: 14px;
+}
+.card > :not(.card__bg) { position: absolute; margin: 0; }
+
+.feed .card { width: 429px; height: 162px; cursor: pointer; transition: transform .15s; }
+.feed .card:hover { transform: translateY(-2px); }
+.feed .card:focus-visible { outline: 2px solid #456aab; outline-offset: 4px; border-radius: 14px; }
+.feed .card.is-selected .card__bg { outline: 2px solid #456aab; outline-offset: 0; }
+
+/* card shape variants taken from each card's effects in Figma */
+.card--shadow .card__bg { box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25); }
+.card--blur   .card__bg { filter: blur(4.5px); }                                            /* layer blur 9  */
+.card--blur-shadow .card__bg { box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); filter: blur(4.5px); }
+.card--flat   .card__bg { }
+
+.card__title {
+  font-family: "Instrument Sans", sans-serif; font-weight: 700; font-size: 20px; line-height: 24.4px;
+  color: #000000; white-space: nowrap;
+}
+.card__body { font-family: "Inria Serif", serif; font-weight: 400; color: #000000; white-space: pre; }
+.card__body--sm { font-size: 11px; line-height: 13.189px; }
+.card__body--md { font-size: 15px; line-height: 18px; }
+.card__body--lg { font-size: 20px; line-height: 24px; }
+.card__body--xl { font-size: 18px; line-height: 22px; }
+.card__body b { font-weight: 700; }
+
+/* "All Students" pill */
+.pill {
+  width: 81px; height: 22px; background: #ada4a4; border-radius: 4px;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.pill__text {
+  position: absolute; left: 14px; top: 5px; font-family: "Inter", sans-serif; font-size: 10px; line-height: 12px; color: #000000; white-space: nowrap;
+}
+
+/* Filter dimming */
+.is-dim { opacity: 0.25; }
+.feed > *, .feed .card { transition: opacity .2s, transform .15s; }
+
+/* ---------- Detail card ---------- */
+.card--detail { left: 284px; top: 996px; width: 617px; height: 269px; }
+.card--detail .card__bg { box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25); }
+.detail__title {
+  left: 31px; top: 37px; font-family: "Instrument Sans", sans-serif; font-weight: 700; font-size: 20px; line-height: 24.4px; color: #000000;
+  white-space: nowrap;
+}
+.detail__body { left: 31px; top: 95px; font-family: "Inria Serif", serif; font-size: 11px; line-height: 13.189px; color: #000000; white-space: pre; }
+.detail__body b { font-weight: 700; }
+.pill--detail { left: 456px; top: 214px; width: 119px; height: 24px; border-radius: 15px; }
+.pill--detail .pill__text { left: 34px; top: 3px; font-family: "Joan", serif; font-size: 14px; line-height: 18px; }
+
+/* ---------- Event cards ---------- */
+.card--intramurals { left: 284px; top: 1309px; width: 271px; height: 190px; }
+.card--meet        { left: 610px; top: 1309px; width: 285px; height: 190px; }
+.card--intramurals .card__bg, .card--meet .card__bg { box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25); }
+.card--meet .card__bg { width: 280px; }
+
+.event__title {
+  left: 20px; top: 24px; font-family: "Instrument Sans", sans-serif; font-weight: 700; font-size: 15px; line-height: 18.3px; color: #000000; white-space: pre-line;
+}
+.card--meet .event__title { left: 16px; }
+.event__body { left: 20px; top: 55px; font-family: "Inria Serif", serif; font-size: 8px; line-height: 10px; color: #000000; white-space: pre; }
+.event__body--meet { left: 16px; top: 71px; }
+.event__note { left: 20px; top: 110px; font-family: "Inria Serif", serif; font-size: 8px; line-height: 10px; color: #000000; white-space: nowrap; }
+
+.apply {
+  left: 199px; top: 150px; width: 49px; height: 21px; padding: 0; border: 0; border-radius: 30px; background: #d9d9d9;
+  font-family: "Inria Serif", serif; font-size: 7px; line-height: 8px; color: #000000; cursor: pointer;
+}
+.apply:hover { background: #cfcfcf; }
+.apply:focus-visible { outline: 2px solid #456aab; outline-offset: 2px; }
+.apply[aria-pressed="true"] { background: #34c759; }
+
+/* ---------- Navigation ---------- */
+.nav { left: 0; top: 0; width: 0; height: 0; }
+.nav__item {
+  position: absolute; display: block; width: 190px; height: 30px;
+  font-size: 16px; line-height: 19.36px; color: #ffffff; cursor: pointer;
+}
+.nav__item > span { position: absolute; white-space: nowrap; }
+.nav__num  { left: 8px;  top: 0; }
+.nav__text { left: 49px; top: 0; }
+.nav__line { left: 0; top: 15px; width: 190px; height: 15px; font-size: 12px; line-height: 15px; opacity: 0.2; pointer-events: none; }
+.nav__item:hover .nav__text, .nav__item:focus-visible .nav__text { text-decoration: underline; text-underline-offset: 3px; }
+.nav__item:focus-visible { outline: 1px dashed rgba(255,255,255,.6); outline-offset: 2px; }
+
+.nav__item--01 { left: 17px; top: 264px; }
+.nav__item--02 { left: 17px; top: 326px; }
+.nav__item--03 { left: 18px; top: 388px; }
+.nav__item--04 { left: 18px; top: 449px; }
+.nav__item--05 { left: 17px; top: 514px; width: 191px; }
+.nav__item--06 { left: 19px; top: 567px; }
+
+.logo {
+  left: 68px; top: 56px; width: 92.26px; height: 88px; border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: url("assets/cec-logo.jpg") no-repeat; background-size: 109.45% 104.84%; background-position: -4.36px -4.43px;
+}
+.school { left: 37px; top: 158px; width: 164px; height: 19px; font-size: 16px; line-height: 19.36px; color: #ffffff; white-space: nowrap; }

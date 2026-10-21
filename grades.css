@@ -1,0 +1,178 @@
+/* ==========================================================================
+   GRADES — Cebu Eastern College Student Portal
+   Source: Figma frame "GRADES" (1440 x 1024). All positions are the exact
+   coordinates from the design; the stage is scaled to fit smaller screens.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: #fffbfb;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.viewport { position: relative; width: 100%; overflow-x: hidden; }
+
+.stage {
+  position: relative;
+  width: 1440px;
+  height: 1024px;               /* grows with the number of rows (grades.js) */
+  background: #fffbfb;
+  overflow: hidden;
+  transform-origin: 0 0;
+}
+
+.stage > * { position: absolute; margin: 0; }
+
+.stage a { color: inherit; text-decoration: none; }
+
+/* ---------- Header rules (underscore glyphs, as in the design) ---------- */
+.rule {
+  left: 295px; width: 1187px; height: 11px;
+  font-size: 32px; line-height: 39px; color: #5d5b5b;
+  white-space: nowrap; pointer-events: none; user-select: none;
+}
+.rule--top     { top: 109px; }
+.rule--summary { top: 233px; opacity: 0.2; }
+.rule--table   { top: 297px; }
+
+/* ---------- Heading ---------- */
+.page-title {
+  left: 295px; top: 59px; width: 116px; height: 43px;
+  font-family: "Inria Serif", serif; font-weight: 400;
+  font-size: 36px; line-height: 43.16px; color: #000000;
+}
+
+.student { left: 0; top: 0; width: 0; height: 0; font-size: 12px; color: #4e4d4d; }
+.student > span { position: absolute; white-space: nowrap; font-size: 12px; line-height: 15px; color: #4e4d4d; }
+.student__name    { left: 295px; top: 109px; }
+.student__program { left: 398px; top: 109px; }
+.student__section { left: 661px; top: 109px; }
+.student__dot     { font-size: 20px !important; line-height: 24.2px !important; top: 100px; }
+.student__dot--1  { left: 386px; }
+.student__dot--2  { left: 651px; }
+
+.subtitle {
+  left: 295px; top: 149px; width: 383px; height: 17px;
+  font-size: 14px; line-height: 17px; color: #000000; white-space: nowrap;
+}
+
+/* ---------- Term picker ---------- */
+.term { left: 1248px; top: 147px; width: 188px; height: 31px; z-index: 30; }
+
+.term__button {
+  position: absolute; inset: 0; width: 188px; height: 31px;
+  background: #fff9f9; border: 1px solid #5d5b5b; border-radius: 4px;
+  padding: 0; margin: 0; cursor: pointer; text-align: left;
+  font-family: inherit; color: #5d5b5b;
+}
+.term__button:focus-visible { outline: 2px solid #456aab; outline-offset: 2px; }
+
+.term__label {
+  position: absolute; left: 6px; top: 6px; width: 164px; height: 17px;
+  font-size: 14px; line-height: 17px; color: #5d5b5b; white-space: pre;
+}
+/* "<" rotated -90deg in the design: Figma matrix(0,-1,1,0) at (1419,167) */
+.term__chevron {
+  position: absolute; left: 170px; top: 19px;   /* 1419-1248-1 , 167-147-1 */
+  width: 8px; height: 15px; font-size: 12px; line-height: 15px; color: #5d5b5b;
+  transform: matrix(0, -1, 1, 0, 0, 0); transform-origin: 0 0;
+  transition: left .15s;
+}
+
+.term__menu {
+  position: absolute; left: 0; top: 35px; width: 188px; margin: 0; padding: 4px 0;
+  list-style: none; background: #fff9f9; border: 1px solid #5d5b5b; border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.term__menu[hidden] { display: none; }
+.term__option {
+  padding: 6px 6px; font-size: 14px; line-height: 17px; color: #5d5b5b; cursor: pointer; white-space: nowrap;
+}
+.term__option:hover, .term__option:focus { background: #ede2da; outline: none; }
+.term__option[aria-selected="true"] { color: #000000; background: #d9d9d9; }
+
+/* ---------- Summary ---------- */
+.summary { left: 0; top: 0; width: 0; height: 0; }
+.stat { position: absolute; top: 209px; height: 45px; }
+.stat__value { position: absolute; left: 0; top: 0; width: 108px; height: 24px; font-size: 20px; line-height: 24.2px; color: #000000; white-space: nowrap; }
+.stat__label { position: absolute; left: 0; top: 32px; height: 13px; font-size: 11px; line-height: 13px; color: #000000; white-space: nowrap; }
+.stat--avg      { left: 295px; width: 125px; }
+.stat--standing { left: 458px; width: 108px; }
+.stat--units    { left: 619px; width: 108px; }
+
+/* ---------- Table header ---------- */
+.thead { left: 0; top: 0; width: 0; height: 0; }
+.th { position: absolute; top: 308px; width: 125px; height: 18px; font-size: 15px; line-height: 18px; color: #000000; }
+.th--course     { left: 295px; }
+.th--instructor { left: 748px; }
+.th--units      { left: 1224px; }
+.th--grade      { left: 1352px; }
+
+/* ---------- Rows ---------- */
+.rows { left: 0; top: 0; width: 1440px; height: 0; }
+.rows > *, .row > * { position: absolute; }
+
+.row__bg { left: 295px; width: 100px; height: 100px; background: #fffdfd; }          /* odd rows  */
+.row__bg--alt {                                                                      /* even rows */
+  width: 1145px; background: #d9d9d9; border-radius: 10px; opacity: 0.57;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.row__bg--alt-tail { width: 100px; border-radius: 0; box-shadow: none; opacity: 1; }
+
+.cell { white-space: pre; font-size: 14px; line-height: 17px; color: #000000; }
+.cell--course     { left: 304px; }
+.cell--instructor { left: 748px; }
+.cell--units      { left: 1241px; }
+.cell--grade      { left: 1349px; }
+.cell--pending    { color: #c69c4c; }
+
+.empty { left: 295px; top: 360px; font-size: 14px; line-height: 17px; color: #5d5b5b; }
+
+/* ---------- Sidebar ---------- */
+.sidebar { left: 0; top: 0; width: 0; height: 0; }
+.sidebar__bg {
+  position: absolute; left: -1px; top: -4px; width: 227px; height: var(--sidebar-h, 1028px);
+  background: linear-gradient(180deg, #1c2b45 0%, #456aab 100%);
+}
+.sidebar__rule {
+  position: absolute; left: 19px; top: 180px; width: 190px; height: 15px;
+  font-size: 12px; line-height: 15px; color: #ffffff; white-space: nowrap; pointer-events: none; user-select: none;
+}
+
+.watermark {
+  left: 415px; top: 132px; width: 820px; height: 823px; object-fit: cover;
+  opacity: 0.05; pointer-events: none; user-select: none;
+}
+
+.nav { left: 0; top: 0; width: 0; height: 0; }
+.nav__item {
+  position: absolute; display: block; width: 190px; height: 30px;
+  font-size: 16px; line-height: 19.36px; color: #ffffff; cursor: pointer;
+}
+.nav__item > span { position: absolute; white-space: nowrap; }
+.nav__num  { left: 8px;  top: 0; }
+.nav__text { left: 49px; top: 0; }
+.nav__line { left: 0; top: 15px; width: 190px; height: 15px; font-size: 12px; line-height: 15px; opacity: 0.2; pointer-events: none; }
+.nav__item:hover .nav__text, .nav__item:focus-visible .nav__text { text-decoration: underline; text-underline-offset: 3px; }
+.nav__item:focus-visible { outline: 1px dashed rgba(255,255,255,.6); outline-offset: 2px; }
+
+/* Exact positions from the design (note they are not perfectly aligned there) */
+.nav__item--01 { left: 17px; top: 264px; }
+.nav__item--02 { left: 17px; top: 326px; }
+.nav__item--03 { left: 18px; top: 388px; }
+.nav__item--04 { left: 18px; top: 449px; }
+.nav__item--05 { left: 17px; top: 514px; width: 191px; }
+.nav__item--06 { left: 19px; top: 567px; }
+.nav__item--02 .nav__num { width: 20px; }
+
+.logo {
+  left: 68px; top: 56px; width: 92.26px; height: 88px; border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: url("assets/cec-logo.jpg") no-repeat; background-size: 109.45% 104.84%; background-position: -4.36px -4.43px;
+}
+.school { left: 37px; top: 158px; width: 164px; height: 19px; font-size: 16px; line-height: 19.36px; color: #ffffff; white-space: nowrap; }
