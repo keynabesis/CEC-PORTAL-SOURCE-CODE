@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+    width: 230px;
+    background: #16283f;
+    color: white;
+    padding: 25px 15px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+/* LOGO */
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.logo p {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #dfe4ee;
+}
+
+.sidebar hr {
+    border: none;
+    border-top: 1px solid #2c3e58;
+    margin: 0 0 25px;
+}
+
+/* NUMBERED NAV LIST */
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    border-bottom: 1px solid #2c3e58;
+}
+
+.nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    background: #1f3552;
+}
+
+.nav-num {
+    color: #8a97ad;
+    font-size: 11px;
+    min-width: 16px;
+}
+
+/* RIGHT SIDE CONTENT */
+.content {
+    margin-left: 230px;
+    padding: 30px;
+    width: calc(100% - 230px);
+}
+
+
+
+.content h2 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #777;
+    padding-bottom: 15px;
+}
+
+/* STUDENT INFORMATION */
+
+.student-info {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #777;
+    padding: 10px 5px 20px;
+    margin-bottom: 40px;
+    font-size: 11px;
+}
+
+.student-info p {
+    margin: 6px 0;
+}
+
+/* SCHEDULE TABLE */
+
+.schedule-container {
+    background: #eee7e2;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 12px;
+}
+
+.schedule-table th {
+    background: white;
+    border: 1px solid #777;
+    padding: 8px 5px;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.schedule-table td {
+    border: 1px solid #aaa;
+    padding: 7px 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.schedule-table td:nth-child(3) {
+    font-size: 7px;
+    text-align: left;
+}
+
+.schedule-table td:nth-child(4) {
+    font-size: 11px;
+}
+
+.schedule-table tfoot td {
+    font-weight: bold;
+}
+/* =========================
+   DETAILED SCHEDULE
+========================= */
+
+.detailed-title {
+    text-align: center;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    border: none !important;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* MAIN DETAILED SCHEDULE BOX */
+.detailed-schedule {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    background: #eee7e2;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* SUBJECT LIST - LEFT */
+.subject-list {
+    width: 90px;
+    flex-shrink: 0;
+    background: #eee7e2;
+}
+
+.subject-header {
+    height: 30px;
+    border: 1px solid #777;
+    border-radius: 15px;
+    background: white;
+    text-align: center;
+    padding-top: 7px;
+    box-sizing: border-box;
+    font-size: 9px;
+    margin-bottom: 10px;
+}
+
+.subject-list > div:not(.subject-header) {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+    box-sizing: border-box;
+}
+
+/* RIGHT SIDE - DAYS */
+.schedule-right {
+    flex: 1;
+    min-width: 0;
+}
+
+/* MONDAY - SUNDAY HEADER */
+.days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 30px;
+    border: 1px solid #777;
+    border-radius: 15px;
+    background: white;
+    align-items: center;
+    text-align: center;
+    font-size: 9px;
+    margin-bottom: 10px;
+}
+
+/* 7 DAY COLUMNS */
+.day-columns {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+}
+
+/* EACH DAY */
+.day {
+    background: white;
+    border: 1px solid #777;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* TIME / VACANT */
+.day span {
+    display: flex;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 7px;
+    white-space: nowrap;
+}
+
+/* TODAY HIGHLIGHTING (added by schedule.js) */
+.days-header span.today-header {
+    color: #182b49;
+    font-weight: bold;
+}
+
+.day.today-column {
+    border: 1.5px solid #182b49;
+    background: #f5f7fb;
+}
+
+.day span.current-period {
+    background: #182b49;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+}
