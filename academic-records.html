@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Records — Cebu Eastern College</title>
+<link rel="stylesheet" href="academic-records.css">
+</head>
+<body>
+
+<div class="portal">
+
+  <!-- Sidebar (visual match to the rest of the portal; only Academic Records is wired up here) -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="logo.png" alt="Cebu Eastern College seal" class="brand-logo">
+      <span class="brand-name">Cebu Eastern College</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-index">01</span>Grades</a>
+      <a href="#" class="nav-item"><span class="nav-index">02</span>Announcements</a>
+      <a href="#" class="nav-item"><span class="nav-index">03</span>Class Schedule</a>
+      <a href="#" class="nav-item"><span class="nav-index">04</span>Enrollment Status</a>
+      <a href="#" class="nav-item active"><span class="nav-index">05</span>Academic Records</a>
+      <a href="#" class="nav-item"><span class="nav-index">06</span>Settings</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="footer-item">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        About Us
+      </a>
+      <a href="#" class="footer-item">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+
+    <img src="logo.png" alt="" class="watermark" aria-hidden="true">
+
+    <header class="page-header">
+      <div>
+        <h1>Academic Records</h1>
+        <p class="page-subtitle" id="studentSummary">Loading student record…</p>
+      </div>
+    </header>
+
+    <section class="record-meta">
+      <div class="meta-left">
+        <p><span class="meta-label">ID Number:</span> <span id="idNumber">—</span></p>
+        <p><span class="meta-label">Student Name:</span> <span id="studentName">—</span></p>
+        <p><span class="meta-label">Course/Year:</span> <span id="courseYear">—</span></p>
+        <p><span class="meta-label">Section:</span> <span id="section">—</span></p>
+      </div>
+      <div class="meta-right">
+        <p><span class="meta-label">Academic Year:</span> <span id="academicYear">—</span></p>
+        <label class="meta-select">
+          <span class="meta-label">Semester:</span>
+          <select id="semesterSelect"></select>
+        </label>
+      </div>
+    </section>
+
+    <section class="grades-table-wrap">
+      <table class="grades-table">
+        <thead>
+          <tr>
+            <th>Grade</th>
+            <th>Subject Code</th>
+            <th>Descriptive Title</th>
+            <th>Units</th>
+            <th>Lec</th>
+            <th>Lab</th>
+            <th>Pre-requisites</th>
+          </tr>
+        </thead>
+        <tbody id="gradesBody">
+          <!-- rows injected by academic-records.js -->
+        </tbody>
+        <tfoot>
+          <tr class="totals-row">
+            <td></td>
+            <td></td>
+            <td>Total</td>
+            <td id="totalUnits">—</td>
+            <td id="totalLec">—</td>
+            <td id="totalLab">—</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <nav class="year-nav">
+      <button type="button" id="prevYearBtn" class="year-btn">‹ Previous Year</button>
+      <span id="yearLabel" class="year-label"></span>
+      <button type="button" id="nextYearBtn" class="year-btn">Next Year ›</button>
+    </nav>
+
+  </main>
+</div>
+
+<script src="academic-records.js"></script>
+</body>
+</html>
