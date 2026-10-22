@@ -1,33 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Profile | Cebu Eastern College</title>
-    <link rel="stylesheet" href="portal.css" />
-    <script src="portal.js" defer></script>
-  <link rel="stylesheet" href="fullscreen.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cebu Eastern College - Profile</title>
+<link rel="stylesheet" href="profilepage.css">
 </head>
-  <body data-page="profile">
-    <main class="portal-frame">
-      <p class="frame-label">PROFILE</p>
-      <div class="portal-layout">
-        <aside id="sidebar" class="portal-sidebar"></aside>
-        <section class="portal-main no-watermark">
-          <div id="page-content"><p role="status">Loading…</p></div>
-          <p
-            class="page-status"
-            id="page-status"
-            role="status"
-            aria-live="polite"
-          ></p>
-        </section>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <svg viewBox="0 0 48 48" width="40" height="40">
+          <circle cx="24" cy="24" r="22" fill="#f5f5f5" stroke="#c9a227" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="17" fill="none" stroke="#1b3a63" stroke-width="1"/>
+          <path d="M24 12 L27 20 L36 20 L29 25 L31 33 L24 28 L17 33 L19 25 L12 20 L21 20 Z" fill="#1b3a63"/>
+        </svg>
       </div>
-    </main>
-    <dialog id="portal-dialog" aria-labelledby="dialog-title">
-      <button id="dialog-close" aria-label="Close">×</button>
-      <h2 id="dialog-title"></h2>
-      <div id="dialog-body"></div>
-    </dialog>
-  </body>
+      <div class="school-name">Cebu Eastern College</div>
+      <hr class="divider">
+    </div>
+
+    <nav class="nav">
+      <a href="#" class="nav-item"><span class="nav-num">01</span><span class="nav-label">Grades</span></a>
+      <a href="#" class="nav-item"><span class="nav-num">02</span><span class="nav-label">Announcements</span></a>
+      <a href="#" class="nav-item"><span class="nav-num">03</span><span class="nav-label">Class Schedule</span></a>
+      <a href="#" class="nav-item"><span class="nav-num">04</span><span class="nav-label">Enrollment Status</span></a>
+      <a href="#" class="nav-item"><span class="nav-num">05</span><span class="nav-label">Academic Records</span></a>
+      <a href="#" class="nav-item"><span class="nav-num">06</span><span class="nav-label">Settings</span></a>
+      <a href="#" class="nav-item active"><span class="nav-num">07</span><span class="nav-label">Profile Page</span></a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h1 class="page-title">Profile</h1>
+
+    <!-- PROFILE HEADER CARD -->
+    <section class="card profile-header">
+      <div class="avatar" id="avatarWrapper">
+        <img id="avatarImg" class="avatar-img" alt="Profile picture" style="display:none;">
+        <svg id="avatarDefault" viewBox="0 0 24 24" width="26" height="26" fill="#555">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <div class="avatar-camera" id="avatarCamera">
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l1.5-2h7L17 8h3v11H4Z"/><circle cx="12" cy="13" r="3.2"/></svg>
+        </div>
+      </div>
+      <input type="file" id="avatarFileInput" accept="image/jpeg,image/jpg,image/png,image/webp" style="display:none;">
+      <div class="avatar-error" id="avatarError"></div>
+      <div class="profile-info">
+        <div class="profile-name" id="displayName">JAY ROEL T. BECARI</div>
+        <div class="profile-sub" id="displayCourseSection">BSIT 3 - Section 3</div>
+        <div class="profile-sub profile-id">
+          <svg class="row-icon" viewBox="0 0 24 24" width="11" height="11"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#888" stroke-width="1.5"/><line x1="3" y1="9" x2="21" y2="9" stroke="#888" stroke-width="1.5"/></svg>
+          Student ID: <span id="displayId">24 144130</span>
+        </div>
+      </div>
+      <button class="edit-btn" id="editBtn">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Edit Profile
+      </button>
+    </section>
+
+    <!-- INFO CARDS -->
+    <section class="info-row">
+      <div class="card info-card personal">
+        <div class="card-title">Personal Information</div>
+
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><circle cx="12" cy="8" r="3.2"/><path d="M4.5 20c1-4 4-6.2 7.5-6.2S18.5 16 19.5 20"/></svg>
+          <span class="label">Full Name</span>
+          <span class="value" id="displayFullName">Jay Roel T. Becari</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          <span class="label">Age</span>
+          <span class="value" id="displayAge">20</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+          <span class="label">Email</span>
+          <span class="value" id="displayEmail">jayroeltyhandsome@gmail.com</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 1-2Z"/></svg>
+          <span class="label">Contact No.</span>
+          <span class="value" id="displayContact">09123456789</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>
+          <span class="label">Address</span>
+          <span class="value" id="displayAddress">Cebu, Philippines</span>
+        </div>
+      </div>
+
+      <div class="card info-card academic">
+        <div class="card-title">Academic Information</div>
+
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><path d="M2 8l10-4 10 4-10 4-10-4Z"/><path d="M6 11v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/></svg>
+          <span class="label">Course</span>
+          <span class="value" id="displayCourse">BSIT</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          <span class="label">Year Level</span>
+          <span class="value" id="displayYearLevel">3rd Year</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M14.5 20c.5-2.8 2-4.5 4.5-4.5"/></svg>
+          <span class="label">Section</span>
+          <span class="value" id="displaySection">Section 3</span>
+        </div>
+        <div class="info-row-item">
+          <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          <span class="label">Semester</span>
+          <span class="value" id="displaySemester">1st Semester</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCOUNT INFORMATION -->
+    <section class="card account-card">
+      <div class="card-title">Account Information</div>
+      <div class="info-row-item">
+        <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><circle cx="12" cy="8" r="3.2"/><path d="M4.5 20c1-4 4-6.2 7.5-6.2S18.5 16 19.5 20"/></svg>
+        <span class="label">Username</span>
+        <span class="value" id="displayUsername">jaybecari</span>
+      </div>
+      <div class="info-row-item">
+        <svg class="row-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#888" stroke-width="1.5"><rect x="4.5" y="10.5" width="15" height="10" rx="1.8"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+        <span class="label">Password</span>
+        <span class="value" id="displayPassword">*********</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Edit Profile</h2>
+
+    <div class="modal-photo-row">
+      <div class="modal-avatar" id="modalAvatarWrapper">
+        <img id="modalAvatarImg" class="avatar-img" alt="Profile picture" style="display:none;">
+        <svg id="modalAvatarDefault" viewBox="0 0 24 24" width="30" height="30" fill="#555">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+      </div>
+      <button type="button" class="btn-change-photo" id="changePhotoBtn">Change Photo</button>
+      <input type="file" id="modalFileInput" accept="image/jpeg,image/jpg,image/png,image/webp" style="display:none;">
+    </div>
+    <div class="avatar-error" id="modalAvatarError"></div>
+
+    <div class="modal-section-title">Personal Information</div>
+
+    <label>Full Name</label>
+    <input type="text" id="inputFullName">
+
+    <label>Student ID</label>
+    <input type="text" id="inputStudentId">
+
+    <label>Age</label>
+    <input type="number" id="inputAge" min="1" max="100" step="1">
+    <div class="field-error" id="ageError"></div>
+
+    <label>Email</label>
+    <input type="text" id="inputEmail">
+
+    <label>Contact Number</label>
+    <input type="text" id="inputContact">
+
+    <label>Address</label>
+    <input type="text" id="inputAddress">
+
+    <div class="modal-section-title">Academic Information</div>
+
+    <label>Course</label>
+    <input type="text" id="inputCourse">
+
+    <label>Year Level</label>
+    <input type="text" id="inputYearLevel">
+
+    <label>Section</label>
+    <input type="text" id="inputSection">
+
+    <label>Semester</label>
+    <input type="text" id="inputSemester">
+
+    <div class="modal-section-title">Account Information</div>
+
+    <label>Username</label>
+    <input type="text" id="inputUsername">
+
+    <label>Password</label>
+    <input type="password" id="inputPassword">
+
+    <div class="modal-actions">
+      <button class="btn-cancel" id="cancelBtn">Cancel</button>
+      <button class="btn-save" id="saveBtn">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO VIEWER MODAL -->
+<div class="photo-viewer-overlay" id="photoViewerOverlay">
+  <button class="photo-viewer-close" id="photoViewerClose" aria-label="Close">&times;</button>
+  <div class="photo-viewer-content" id="photoViewerContent">
+    <img id="photoViewerImg" class="photo-viewer-img" alt="Profile picture" style="display:none;">
+    <svg id="photoViewerDefault" class="photo-viewer-default" viewBox="0 0 24 24" width="120" height="120" fill="#999">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+    </svg>
+  </div>
+</div>
+
+<script src="profilepage.js"></script>
+</body>
 </html>
