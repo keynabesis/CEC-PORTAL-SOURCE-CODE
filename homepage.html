@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Dashboard | Cebu Eastern College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Relative paths only, so everything works on a GitHub Pages project site. -->
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></symbol>
+  <symbol id="i-grades" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm1.5 12.5 1.4 1.4 3.6-3.6 2.5 2.5 4-4.6-1.5-1.3-2.6 3-2.4-2.4-5 5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></symbol>
+  <symbol id="i-announce" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10v8h20v-8A10 10 0 0 0 12 2zM4 18v-6a8 8 0 0 1 16 0v6H4z"/><path d="M12 6a6 6 0 0 0-6 6v4h12v-4a6 6 0 0 0-6-6z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10.09 15.59 11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5a2 2 0 0 0-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></symbol>
+</svg>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sb-brand">
+      <img src="cec.png" alt="Cebu Eastern College seal" class="sb-logo" data-seal>
+      <p>Cebu Eastern College</p>
+    </div>
+
+    <nav class="sb-academic" aria-label="Academic">
+      <h2>ACADEMIC</h2>
+      <a href="academic-records.html"><svg><use href="#i-grad"/></svg>Academic Records</a>
+      <!-- Verify exact filename/case on GitHub: Class-schedule.html vs schedule.html -->
+      <a href="Class-schedule.html"><svg><use href="#i-cal"/></svg>View Schedule</a>
+      <a href="grades.html"><svg><use href="#i-grades"/></svg>Student Grades</a>
+      <a href="attendance.html"><svg><use href="#i-check"/></svg>Attendance</a>
+    </nav>
+
+    <nav class="sb-admin" aria-label="Administrative">
+      <h2>ADMINISTRATIVE</h2>
+      <!-- Verify announcements.html vs announcement.html -->
+      <a href="announcements.html"><svg><use href="#i-announce"/></svg>Announcements</a>
+    </nav>
+
+    <nav class="sb-settings" aria-label="Settings">
+      <h2>SETTINGS</h2>
+      <a href="settings.html"><svg><use href="#i-gear"/></svg>Account Settings</a>
+      <a href="settings.html" class="small"><svg><use href="#i-bell"/></svg>Notification References</a>
+      <a href="about.html" class="strong"><svg><use href="#i-user"/></svg>About Us</a>
+    </nav>
+
+    <a href="login.html" class="sb-logout" id="logoutLink"><svg><use href="#i-logout"/></svg>LOGOUT</a>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <!-- Main -->
+  <div class="main">
+    <img src="cec.png" alt="" class="watermark" data-seal aria-hidden="true">
+
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <label class="search">
+        <span class="search-dot" aria-hidden="true"></span>
+        <input type="search" placeholder="Search" aria-label="Search">
+      </label>
+      <div class="top-icons">
+        <a href="announcements.html" class="ico has-dot" aria-label="Messages"><svg><use href="#i-chat"/></svg></a>
+        <a href="announcements.html" class="ico has-dot" aria-label="Notifications"><svg><use href="#i-bell"/></svg></a>
+        <a href="profile.html" class="avatar" aria-label="Profile">D</a>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="welcome" aria-label="Welcome">
+        <div class="welcome-text">
+          <p class="w-date">Sunday, September 13</p>
+          <h1>Welcome back, Domin</h1>
+          <p class="w-sub">Here's a quick look at your classes and academic progress.</p>
+        </div>
+        <div class="term">
+          <span>Current term</span>
+          <strong>1st Semester - S.Y. 2026-2027</strong>
+        </div>
+      </section>
+
+      <section class="course-info" aria-label="My course">
+        <div>
+          <p>My course</p>
+          <p>Bachelor of Science in Information Technology</p>
+          <p>2nd Year · 2nd Semester · S.Y. 2026-2027</p>
+        </div>
+        <a href="enrollment.html" class="change-btn">Change Course</a>
+      </section>
+
+      <div class="dash">
+        <div class="stats">
+          <article class="stat">
+            <h3>GPA</h3>
+            <span class="v">1.74</span>
+            <span class="n">Good standing</span>
+          </article>
+          <article class="stat stat-2">
+            <h3>Enrolled</h3>
+            <span class="v">4</span>
+            <span class="n">Subjects</span>
+          </article>
+        </div>
+
+        <div class="courses-col">
+          <h2 class="courses-title"><svg><use href="#i-book"/></svg>Enrolled Courses</h2>
+          <section class="courses" aria-label="Enrolled courses">
+
+            <article class="card lavender">
+              <h3>Social and Professional Issues - IT SPI 31</h3>
+              <p><svg><use href="#i-user"/></svg>Ms. Sadora</p>
+              <p><svg><use href="#i-cal"/></svg>Tuesday &amp; Thursday</p>
+              <p><svg><use href="#i-clock"/></svg>9:00 AM - 10:30 AM</p>
+              <p><svg><use href="#i-pin"/></svg>CL 4</p>
+            </article>
+
+            <article class="card yellow">
+              <h3>System Integration and Architecture - IT SIA 31</h3>
+              <p><svg><use href="#i-user"/></svg>Mr. Bacotol</p>
+              <p><svg><use href="#i-cal"/></svg>Tuesday &amp; Thursday</p>
+              <p><svg><use href="#i-clock"/></svg>10:30 - 12:00PM</p>
+              <p><svg><use href="#i-pin"/></svg>CL 0</p>
+              <a href="subjects.html" class="view-all">View all</a>
+            </article>
+
+            <article class="card cyan">
+              <h3>Event Driven Programming - IT EVD 31</h3>
+              <p><svg><use href="#i-user"/></svg>Mr. Pracko</p>
+              <p><svg><use href="#i-cal"/></svg>Friday &amp; Saturday</p>
+              <p><svg><use href="#i-clock"/></svg>06:00 - 07:30PM</p>
+              <p><svg><use href="#i-pin"/></svg>CL 1</p>
+            </article>
+
+            <article class="card green">
+              <h3>Networking - IT NET 31</h3>
+              <p><svg><use href="#i-user"/></svg>Mr. Villanueva</p>
+              <p><svg><use href="#i-cal"/></svg>Monday &amp; Wednesday</p>
+              <p><svg><use href="#i-clock"/></svg>10:30 - 12:00PM</p>
+              <p><svg><use href="#i-pin"/></svg>CL 3</p>
+            </article>
+
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="homepage.js"></script>
+</body>
+</html>

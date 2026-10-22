@@ -1,0 +1,280 @@
+/* homepage.css — Student dashboard, tuned to the 880 x 625 reference.
+   Desktop values below are measured from the screenshot; the media queries at
+   the bottom only apply on smaller screens. */
+
+:root {
+  --sb-top: #203452;
+  --sb-bottom: #41649d;
+  --banner: #526bb0;
+  --courses-bg: #4c65a8;
+  --info-bg: #e1dddd;
+  --search-bg: #f3f4f6;
+  --lavender: #dccbfa;
+  --yellow: #ffe2a2;
+  --cyan: #b5e6f5;
+  --green: #c8edb7;
+  --navy: #1c2a4f;
+  --btn: #8fa9db;
+  --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--sans); color: var(--navy); background: #fff; }
+svg { fill: currentColor; flex: none; }
+
+.app {
+  display: grid;
+  grid-template-columns: 139px 1fr;
+  min-height: max(100vh, 625px);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky; top: 0;
+  height: 100vh; min-height: 625px;
+  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, var(--sb-top) 0%, var(--sb-bottom) 100%);
+  color: #fff;
+  overflow-y: auto;
+  z-index: 20;
+}
+.sidebar h2 {
+  margin: 0; padding-left: 6px;
+  font-size: 9.5px; line-height: 12px; font-weight: 400; letter-spacing: 0;
+}
+.sidebar a {
+  display: flex; align-items: center; gap: 6px;
+  padding-left: 18px; height: 20.5px;
+  color: #fff; text-decoration: none;
+  font-size: 9.5px; line-height: 1; white-space: nowrap;
+}
+.sidebar a svg { width: 12px; height: 12px; }
+.sidebar a:hover, .sidebar a:focus-visible { background: rgba(255,255,255,.14); outline: none; }
+
+.sb-brand {
+  padding: 62px 6px 7px; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.75);
+}
+.sb-logo { display: block; width: 56px; height: 56px; margin: 0 auto; object-fit: contain; }
+.sb-brand p { margin: 8px 0 0; font-size: 9.5px; line-height: 12px; }
+
+.sb-academic { flex: 1; padding-top: 5px; }
+.sb-academic h2 { margin-bottom: 6px; }
+
+.sb-admin {
+  height: 123px; padding-top: 7px;
+  border-top: 1px solid rgba(255,255,255,.75);
+}
+.sb-admin h2 { margin-bottom: 3px; }
+
+.sb-settings {
+  height: 94px; padding-top: 13px;
+  border-top: 1px solid rgba(255,255,255,.75);
+}
+.sb-settings h2 { margin-bottom: 5px; }
+.sb-settings a { height: 20px; }
+.sb-settings a.small { height: 16px; font-size: 8px; }
+.sb-settings a.strong { height: 15px; font-weight: 600; }
+
+.sidebar a.sb-logout {
+  height: 66px; padding: 20px 0 0 17px; gap: 7px; align-items: flex-start;
+  border-top: 1px solid rgba(255,255,255,.75);
+}
+.sidebar a.sb-logout svg { width: 17px; height: 17px; margin-top: -3px; color: #e03131; }
+
+/* ---------- Main ---------- */
+.main { position: relative; min-width: 0; overflow: hidden; }
+
+.watermark {
+  position: absolute; left: 41%; top: 160px;
+  width: 395px; height: auto; max-width: 90%;
+  transform: translateX(-50%);
+  opacity: .08; pointer-events: none; user-select: none;
+  z-index: 0;
+}
+
+.topbar {
+  position: relative; z-index: 1;
+  height: 71px; padding: 4px 34px 0 31px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: #fff; border-bottom: 1px solid #8c8c8c;
+}
+.menu-btn { display: none; }
+.search {
+  display: flex; align-items: center; gap: 8px;
+  width: 247px; max-width: 55%; height: 25px; padding: 0 11px;
+  background: var(--search-bg); border-radius: 5px;
+}
+.search-dot { width: 7px; height: 7px; border-radius: 50%; background: #3b4a63; flex: none; }
+.search input {
+  flex: 1; min-width: 0; border: 0; background: transparent; outline: none;
+  font: 400 7px var(--sans); color: var(--navy);
+}
+.search input::placeholder { color: #1f2a44; opacity: 1; }
+.search:focus-within { box-shadow: 0 0 0 1.5px #526bb0; }
+
+.top-icons { display: flex; align-items: center; gap: 19px; }
+.ico { position: relative; display: grid; place-items: center; width: 14px; height: 14px; color: #111c34; }
+.ico svg { width: 13px; height: 13px; }
+.has-dot::after {
+  content: ""; position: absolute; top: -2px; right: -3px;
+  width: 4px; height: 4px; border-radius: 50%; background: #e5252a;
+}
+.avatar {
+  display: grid; place-items: center; width: 18px; height: 18px; margin-left: 0;
+  border-radius: 50%; background: #8a5a44; color: #fff;
+  font: 600 8px var(--sans); text-decoration: none;
+}
+
+.content { position: relative; z-index: 1; padding: 17px 15px 12px 44px; }
+
+/* Welcome banner */
+.welcome {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  min-height: 112px; padding: 23px 27px 0 64px;
+  background: var(--banner); color: #fff; border-radius: 40px;
+  box-shadow: 0 2px 6px rgba(20,30,70,.25);
+}
+.welcome-text p { margin: 0; }
+.w-date { font-size: 10.5px; line-height: 14px; font-weight: 600; }
+.welcome h1 { margin: 8px 0 0; font-size: 17px; line-height: 22px; font-weight: 700; }
+.w-sub { margin-top: 3px !important; font-size: 11px; line-height: 14px; font-weight: 600; }
+
+.term {
+  flex: none; margin-top: -2px; width: 153px; height: 72px; padding: 20px 6px 0 9px;
+  background: rgba(255,255,255,.4); border-radius: 28px;
+  box-shadow: 0 2px 6px rgba(20,30,70,.2);
+}
+.term span { display: block; font-family: var(--serif); font-size: 9.5px; line-height: 12px; }
+.term strong { display: block; margin-top: 3px; font-size: 8px; line-height: 12px; font-weight: 700; white-space: nowrap; }
+
+/* My course */
+.course-info {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 54px; margin: 20px 4px 0 0; padding: 3px 35px 3px 27px;
+  background: var(--info-bg); border-radius: 27px;
+  font-family: var(--serif); font-size: 11.5px; line-height: 16px; color: #111;
+}
+.course-info p { margin: 0; }
+.change-btn {
+  flex: none; display: grid; place-items: center; width: 129px; height: 40px;
+  background: var(--btn); color: var(--navy); border-radius: 20px;
+  font-family: var(--serif); font-size: 13px; text-decoration: none;
+  box-shadow: 0 1px 4px rgba(20,30,70,.2);
+}
+.change-btn:hover, .change-btn:focus-visible { filter: brightness(1.06); outline: none; }
+
+/* Dashboard grid */
+.dash {
+  display: grid; grid-template-columns: 161px minmax(0, 1fr); column-gap: 47px;
+  margin-top: 16px; padding-left: 3px;
+}
+.stats { margin-top: 27px; display: flex; flex-direction: column; gap: 16px; }
+.stat {
+  height: 93px; padding: 13px 0 0 31px;
+  background: var(--banner); color: #fff; border-radius: 30px;
+  font-family: var(--serif);
+  box-shadow: 0 2px 6px rgba(20,30,70,.3);
+}
+.stat h3 { margin: 0; font-size: 19px; line-height: 22px; font-weight: 400; }
+.stat .v { display: block; margin-top: 7px; font-size: 12px; line-height: 16px; }
+.stat .n { display: block; margin-top: 2px; font-size: 13px; line-height: 16px; }
+.stat-2 { height: 78px; padding-top: 12px; }
+.stat-2 .v { margin-top: 1px; }
+.stat-2 .n { margin-top: 3px; }
+
+.courses-col { padding-right: 11px; }
+.courses-title {
+  display: flex; align-items: center; gap: 8px;
+  height: 18px; margin: 0 0 9px 10px;
+  font-size: 11px; font-weight: 500; color: var(--navy);
+}
+.courses-title svg { width: 17px; height: 17px; }
+
+.courses {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 9px 19px;
+  padding: 24px 20px 31px 25px;
+  background: var(--courses-bg); border-radius: 28px;
+  box-shadow: 0 2px 6px rgba(20,30,70,.3);
+}
+.card {
+  position: relative; min-height: 116px; padding: 11px 12px 8px 17px;
+  border: 1px solid rgba(255,255,255,.75); border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.28);
+  color: var(--navy);
+}
+.lavender { background: var(--lavender); }
+.yellow   { background: var(--yellow); }
+.cyan     { background: var(--cyan); }
+.green    { background: var(--green); }
+
+.card h3 {
+  display: flex; align-items: center; height: 24px; margin: 0 0 2px; padding-bottom: 4px;
+  font-size: 8.5px; line-height: 11px; font-weight: 600;
+  box-sizing: content-box;
+  border-bottom: 1px solid rgba(28,42,79,.35);
+}
+.card p {
+  display: flex; align-items: center; gap: 7px;
+  margin: 0; height: 16.5px; font-size: 7.5px; line-height: 1;
+}
+.card p svg { width: 9px; height: 9px; }
+.view-all {
+  position: absolute; right: 8px; bottom: 11px;
+  font-size: 7px; font-weight: 500; color: #2f6fe0; text-decoration: none;
+}
+.view-all:hover, .view-all:focus-visible { text-decoration: underline; outline: none; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 899px) {
+  .content { padding: 16px 12px 12px 22px; }
+  .welcome { padding-left: 36px; }
+  .dash { grid-template-columns: 140px minmax(0, 1fr); column-gap: 22px; padding-left: 0; }
+  .courses { padding: 20px 14px 22px 16px; gap: 9px 12px; }
+  .courses-col { padding-right: 0; }
+  .course-info { margin-right: 0; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .app { grid-template-columns: 1fr; }
+
+  .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0; width: 210px; height: 100%;
+    transform: translateX(-100%); transition: transform .2s ease;
+    box-shadow: 4px 0 14px rgba(0,0,0,.3);
+  }
+  .sidebar.open { transform: none; }
+  .scrim { position: fixed; inset: 0; background: rgba(10,20,40,.45); z-index: 15; }
+  .scrim[hidden] { display: none; }
+
+  .menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 3px;
+    width: 30px; height: 30px; padding: 7px; border: 0; border-radius: 6px;
+    background: var(--search-bg); cursor: pointer;
+  }
+  .menu-btn span { display: block; height: 2px; background: var(--navy); border-radius: 1px; }
+
+  .topbar { padding: 4px 14px 0; gap: 10px; }
+  .search { flex: 1; max-width: none; }
+
+  .content { padding: 14px 12px 16px; }
+  .welcome { flex-direction: column; padding: 20px 22px; border-radius: 28px; min-height: 0; gap: 14px; }
+  .term { margin-top: 0; width: 100%; height: auto; padding: 12px 14px; border-radius: 20px; }
+  .course-info { flex-direction: column; align-items: flex-start; padding: 14px 20px; border-radius: 24px; }
+  .change-btn { width: 100%; }
+
+  .dash { grid-template-columns: 1fr; margin-top: 14px; }
+  .stats { margin-top: 0; flex-direction: row; gap: 12px; margin-bottom: 16px; }
+  .stat, .stat-2 { flex: 1; height: auto; padding: 14px 18px 16px; border-radius: 24px; }
+  .courses-title { margin-left: 4px; }
+  .courses { grid-template-columns: 1fr; padding: 16px; border-radius: 22px; gap: 10px; }
+  .card { min-height: 116px; }
+  .watermark { left: 50%; top: 220px; width: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar { transition: none; }
+}
