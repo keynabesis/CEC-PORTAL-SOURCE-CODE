@@ -1,0 +1,17 @@
+{
+  "name": "cec-student-portal",
+  "version": "2.0.0",
+  "private": true,
+  "description": "CEC student and teacher portal with MySQL",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "demo": "node server.js --demo",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "mysql2": "^3.14.0"
+  }
+}
